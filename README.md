@@ -20,3 +20,12 @@ From the behavior, i saw, that the measurement data in direction of the curve wa
 ![alt text][capture2]
 
 This point occured when the x coordinate switched to negative values. To reverse engineer the error, i tried to run the filter once without RADAR and once without LIDAR data. It was clear that the RADAR data algorithm caused the problem. The divergent behavior occured once the calculated X value went below 0.
+
+As it turned out, it could easily be solved by guaranteeing an angle between -pi and pi with a simple if statement. The final code ran the track without any issues in both directions.
+
+if (y_(1) > M_PI) {
+ y_(1) -= 2 * M_PI;
+}
+ 
+[capture3]: .capture3.PNG "Final Performance"
+![alt text][capture3]
