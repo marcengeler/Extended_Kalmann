@@ -11,12 +11,12 @@ To start off, I reviewed the course material and implemented the correct matrix 
 
 The first tests showed, that the model was off.
 
-[capture]: .capture.PNG "Prediciton Error"
+[capture]: ./capture.PNG "Prediciton Error"
 ![alt text][capture]
 
 From the behavior, i saw, that the measurement data in direction of the curve was off, and that probably the filter didn't update the matrices after initialization. The bug in the code was localized well and shifted to a later stage, where it seemed to divergate from the path.
 
-[capture2]: .capture2.PNG "Prediciton Error"
+[capture2]: ./capture2.PNG "Prediciton Error"
 ![alt text][capture2]
 
 This point occured when the x coordinate switched to negative values. To reverse engineer the error, i tried to run the filter once without RADAR and once without LIDAR data. It was clear that the RADAR data algorithm caused the problem. The divergent behavior occured once the calculated X value went below 0.
@@ -27,5 +27,5 @@ if (y_(1) > M_PI) {
  y_(1) -= 2 * M_PI;
 }
  
-[capture3]: .capture3.PNG "Final Performance"
+[capture3]: ./capture3.PNG "Final Performance"
 ![alt text][capture3]
