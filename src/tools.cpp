@@ -52,7 +52,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 
   //check division by zero
   if((fabs(c1) < 0.0001) || (fabs(c2) < 0.0001) || (fabs(c3) < 0.0001)){
-    return Hj
+    return Hj;
   }
 
   //compute the Jacobian matrix
