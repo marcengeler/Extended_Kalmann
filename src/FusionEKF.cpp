@@ -39,10 +39,6 @@ FusionEKF::FusionEKF() {
   Hj_ << 0, 0, 0, 0,
          0, 0, 0, 0,
 		 0, 0, 0, 0;
-  
-  ///* set the acceleration noise components
-  noise_ax = 5.0;
-  noise_ay = 5.0;
 }
 
 /**
@@ -118,6 +114,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   float dt_2 = pow(dt,2);
   float dt_3 = pow(dt,3);
   float dt_4 = pow(dt,4);
+  ///* set the acceleration noise components
+  float noise_ax = 5.0;
+  float noise_ay = 5.0;
   ///* process covariance matrix
   efk_.Q_ = MatrixXd(4,4);
   efk_.Q_ << dt_4/4.0 * noise_ax, 0, dt_3/2.0 * noise_ax, 0,
