@@ -19,4 +19,4 @@ From the behavior, i saw, that the measurement data in direction of the curve wa
 [capture2]: .capture2.PNG "Prediciton Error"
 ![alt text][capture2]
 
-This point occured when the x coordinate switched to negative values. 
+This point occured when the x coordinate switched to negative values. To reverse engineer the error, i tried to run the filter once without RADAR and once without LIDAR data. It was clear that the RADAR data algorithm caused the problem.
