@@ -99,7 +99,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   /*****************************************************************************
    *  Prediction
    ****************************************************************************/
-  float dt = measurement_pack.timestamp_ - previous_timestamp_);
+  float dt = measurement_pack.timestamp_ - previous_timestamp_;
   previous_timestamp_ = measurement_pack.timestamp_;
   ///* Convert to SI unitsdt
   dt = dt/1000000.0;
