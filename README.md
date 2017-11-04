@@ -14,4 +14,9 @@ The first tests showed, that the model was off.
 [capture]: .capture.PNG "Prediciton Error"
 ![alt text][capture]
 
-From the behavior, i saw, that the measurement data in direction of the curve was off, and that probably the filter didn't update the matrices after initialization.
+From the behavior, i saw, that the measurement data in direction of the curve was off, and that probably the filter didn't update the matrices after initialization. The bug in the code was localized well and shifted to a later stage, where it seemed to divergate from the path.
+
+[capture2]: .capture2.PNG "Prediciton Error"
+![alt text][capture2]
+
+This point occured when the x coordinate switched to negative values. 
