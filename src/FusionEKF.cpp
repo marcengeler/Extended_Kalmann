@@ -103,7 +103,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    ****************************************************************************/
   float dt = measurement_pack.timestamp_ - previous_timestamp_;
   previous_timestamp_ = measurement_pack.timestamp_;
-  ///* Convert to SI unitsdt
+  ///* Convert to SI units dt
   dt = dt/1000000.0;
   
   ///* state transistion matrix
@@ -117,8 +117,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   float dt_3 = pow(dt,3);
   float dt_4 = pow(dt,4);
   ///* set the acceleration noise components
-  float noise_ax = 5.0;
-  float noise_ay = 5.0;
+  float noise_ax = 9.0;
+  float noise_ay = 9.0;
   ///* process covariance matrix
   ekf_.Q_ = MatrixXd(4,4);
   ekf_.Q_ << dt_4/4.0 * noise_ax, 0, dt_3/2.0 * noise_ax, 0,
